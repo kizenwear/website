@@ -12,6 +12,18 @@ module.exports = async function (context, req) {
             return;
         }
 
+        if (!process.env.RAZORPAY_KEY_ID || !process.env.RAZORPAY_SECRET) {
+            context.res = {
+                status: 200,
+                body: { 
+                    message: "Backend is connected! (Mocked response because Razorpay keys are not set locally)", 
+                    amount: req.body.amount,
+                    currency: req.body.currency || "INR"
+                }
+            };
+            return;
+        }
+
         const razorpay = new Razorpay({
             key_id: process.env.RAZORPAY_KEY_ID,
             key_secret: process.env.RAZORPAY_SECRET
