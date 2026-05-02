@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ApiService } from './services/api.service';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +9,25 @@ import { CommonModule } from '@angular/common';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Kizenwear Retail Site';
+  connectionStatus = 'Waiting to test connection...';
+
+  constructor(private apiService: ApiService) {}
+
+  ngOnInit() {}
+
+  testBackendConnection() {
+    this.connectionStatus = 'Testing backend...';
+    this.apiService.createOrder(100).subscribe({
+      next: (res) => {
+        this.connectionStatus = `Success: Backend reached! Order response: ${JSON.stringify(res)}`;
+      },
+      error: (err) => {
+        this.connectionStatus = `Error connecting to backend: ${err.message}`;
+      }
+    });
+  }
 
   products = [
     {
