@@ -3,12 +3,12 @@
     <div class="logo-mark">K</div>
     <span class="logo-text">Kizenwear</span>
   </div>
-  <nav class="nav-links">
-    <a href="#">Apparel</a>
-    <a href="#">Drinkware</a>
-    <a href="#">Accessories</a>
-    <a href="#">Lifestyle</a>
-  </nav>
+    <nav class="nav-links">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+      <a routerLink="/explore" routerLinkActive="active">Explore</a>
+      <a routerLink="/products" routerLinkActive="active">Collection</a>
+      <a routerLink="/contact" routerLinkActive="active">Contact Us</a>
+    </nav>
   <div class="nav-actions">
     <button class="btn">Shop Now</button>
   </div>
