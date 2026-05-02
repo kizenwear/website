@@ -1,0 +1,29 @@
+name: Manual Promote main-qa to main
+
+on:
+  workflow_dispatch: # This makes it manually triggerable from the Actions tab
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main-qa
+
+      - name: Create Pull Request to main
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Check if there are differences
+          if ! git diff --quiet origin/main..origin/main-qa; then
+            gh pr create \
+              --base main \
+              --head main-qa \
+              --title "Manual Promotion: main-qa to main" \
+              --body "This is a manually triggered pull request promoting QA-approved changes from \`main-qa\` to \`main\` for production release."
+          else
+            echo "No changes to promote from main-qa to main."
+          fi
