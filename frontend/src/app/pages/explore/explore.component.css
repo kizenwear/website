@@ -35,3 +35,73 @@
 .placeholder-card p {
   margin-bottom: 2rem;
 }
+
+/* Masonry Lookbook Styles */
+.lookbook-section {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.masonry-gallery {
+  column-count: 3;
+  column-gap: 2rem;
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 2rem;
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.masonry-item img {
+  width: 100%;
+  display: block;
+  border-radius: var(--radius-md);
+  transition: transform 0.5s ease;
+}
+
+.masonry-item:hover img {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+}
+
+.masonry-item:hover .overlay {
+  opacity: 1;
+}
+
+.overlay-content {
+  text-align: center;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.masonry-item:hover .overlay-content {
+  transform: translateY(0);
+}
+
+.overlay-content h4 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+@media (max-width: 1024px) {
+  .masonry-gallery { column-count: 2; }
+}
+
+@media (max-width: 600px) {
+  .masonry-gallery { column-count: 1; }
+  .explore-page { padding: 4rem 2rem; }
+}
