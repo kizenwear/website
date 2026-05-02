@@ -1,0 +1,31 @@
+name: EOD Promote main-dev to main-qa
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs at midnight UTC every day
+  workflow_dispatch: # Allows manual trigger for testing
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main-dev
+
+      - name: Create Pull Request to main-qa
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Check if there are differences
+          if ! git diff --quiet origin/main-qa..origin/main-dev; then
+            gh pr create \
+              --base main-qa \
+              --head main-dev \
+              --title "Automated EOD Promotion: main-dev to main-qa" \
+              --body "This is an automated pull request promoting changes from \`main-dev\` to \`main-qa\` at the end of the day."
+          else
+            echo "No changes to promote from main-dev to main-qa."
+          fi
