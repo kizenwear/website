@@ -1,43 +1,37 @@
-bin
-obj
-csx
-.vs
-edge
-Publish
+HELP.md
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
 
-*.user
-*.suo
-*.cscfg
-*.Cache
-project.lock.json
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
 
-/packages
-/TestResults
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
 
-/tools/NuGet.exe
-/App_Data
-/secrets
-/data
-.secrets
-appsettings.json
-local.settings.json
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
 
-node_modules
-dist
-
-# Local python packages
-.python_packages/
-
-# Python Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+### VS Code ###
+.vscode/

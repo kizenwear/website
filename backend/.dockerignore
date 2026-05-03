@@ -1,0 +1,6 @@
+build
+.gradle
+.vscode
+.git
+.gitignore
+*.log
