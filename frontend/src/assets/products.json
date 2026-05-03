@@ -1,0 +1,47 @@
+[
+  {
+    "id": "1",
+    "slug": "luxeprint-premium-hoodie",
+    "name": "LuxePrint Premium Hoodie",
+    "description": "High-definition 3D effect. Best for statement pieces.",
+    "price": 2500,
+    "images": [
+      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1611312449408-fcece27cdbb1?auto=format&fit=crop&w=800&q=80"
+    ],
+    "category": "Apparel",
+    "sizes": ["S", "M", "L", "XL"],
+    "featured": true,
+    "drop": "Winter 26"
+  },
+  {
+    "id": "2",
+    "slug": "infinity-mug",
+    "name": "Infinity Mug",
+    "description": "Full-color, vibrant, and lasting impressions on every sip.",
+    "price": 500,
+    "images": [
+      "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1554162451-b0db43d4e7f3?auto=format&fit=crop&w=800&q=80"
+    ],
+    "category": "Drinkware",
+    "sizes": ["Standard"],
+    "featured": true,
+    "drop": "Core Collection"
+  },
+  {
+    "id": "3",
+    "slug": "premium-precision-keychain",
+    "name": "Premium Precision Keychain",
+    "description": "Precision-cut, waterproof, custom-shaped signature accessories.",
+    "price": 300,
+    "images": [
+      "https://images.unsplash.com/photo-1605809189283-e02fb8605273?auto=format&fit=crop&w=800&q=80"
+    ],
+    "category": "Accessories",
+    "sizes": ["One Size"],
+    "featured": false,
+    "drop": "Core Collection"
+  }
+]

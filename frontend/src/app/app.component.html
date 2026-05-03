@@ -1,0 +1,36 @@
+<header class="navbar">
+  <div class="logo">
+    <div class="logo-mark">K</div>
+    <span class="logo-text">Kizenwear</span>
+  </div>
+    <nav class="nav-links">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+      <a routerLink="/explore" routerLinkActive="active">Explore</a>
+      <a routerLink="/products" routerLinkActive="active">Collection</a>
+      <a routerLink="/contact" routerLinkActive="active">Contact Us</a>
+    </nav>
+  <div class="nav-actions">
+    <button class="btn">Shop Now</button>
+  </div>
+</header>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-brand">
+      <h2>Kizenwear</h2>
+      <p>Continuous improvement, everywhere you go.</p>
+    </div>
+    <div class="footer-links">
+      <a href="#">About Us</a>
+      <a href="#">Constitution</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 Kizenwear. All rights reserved.
+  </div>
+</footer>

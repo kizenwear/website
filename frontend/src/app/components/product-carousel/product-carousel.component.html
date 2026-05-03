@@ -1,0 +1,17 @@
+<div class="carousel-container" *ngIf="images && images.length > 0">
+  <div class="main-image-container">
+    <button class="nav-btn prev-btn" (click)="prevImage()" *ngIf="images.length > 1">&#10094;</button>
+    <img [src]="currentImage" alt="Product Image" class="main-image">
+    <button class="nav-btn next-btn" (click)="nextImage()" *ngIf="images.length > 1">&#10095;</button>
+  </div>
+  
+  <div class="thumbnails-container" *ngIf="images.length > 1">
+    <div *ngFor="let img of images; let i = index" 
+         class="thumbnail" 
+         [class.active]="i === currentIndex"
+         (click)="selectImage(i)">
+      <img [src]="img" alt="Thumbnail">
+    </div>
+  </div>
+</div>
+

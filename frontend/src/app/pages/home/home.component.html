@@ -1,0 +1,32 @@
+<!-- Dynamic CMS Hero Section -->
+<section class="hero" *ngIf="getHeroSection() as hero" [style.background-image]="'url(' + hero.image + ')'">
+  <div class="hero-content">
+    <h1>{{ hero.title }}</h1>
+    <p>{{ hero.subtitle }}</p>
+    <div class="hero-buttons">
+      <button class="btn btn-luxe">Explore Collection</button>
+    </div>
+  </div>
+</section>
+
+<!-- Dynamic CMS Featured Section -->
+<section class="product-grid-section" *ngIf="getFeaturedSection() as featured">
+  <div class="section-header">
+    <h2>{{ featured.title }}</h2>
+    <p>{{ featured.subtitle }}</p>
+  </div>
+  
+  <div class="grid">
+    <div class="product-card" *ngFor="let product of products">
+      <!-- Image Carousel Component for Product -->
+      <app-product-carousel [images]="product.images"></app-product-carousel>
+      
+      <div class="product-info">
+        <span class="product-tag" *ngIf="product.drop">{{ product.drop }}</span>
+        <h3>{{ product.name }}</h3>
+        <p class="price">₹{{ product.price }}</p>
+        <button class="btn btn-outline" style="width: 100%; margin-top: 10px;">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</section>

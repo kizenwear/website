@@ -1,14 +1,21 @@
+.kizenwear-app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 5%;
-  background: rgba(15, 23, 42, 0.8);
+  padding: 1.5rem 4rem;
+  background-color: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(12px);
   position: sticky;
   top: 0;
-  z-index: 100;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .logo {
@@ -18,52 +25,73 @@
 }
 
 .logo-mark {
-  background: var(--color-accent-blue);
-  color: var(--color-secondary);
-  font-family: var(--font-heading);
-  font-weight: bold;
-  font-size: 1.5rem;
-  width: 40px;
-  height: 40px;
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
-  position: relative;
-  overflow: hidden;
-}
-
-.logo-mark::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  border-top: 15px solid var(--color-secondary);
-  border-left: 15px solid transparent;
-  opacity: 0.2;
+  font-weight: 800;
+  font-size: 1.2rem;
 }
 
 .logo-text {
-  font-family: var(--font-heading);
-  font-size: 1.8rem;
-  font-weight: 700;
-  letter-spacing: -0.5px;
+  font-weight: 800;
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .nav-links {
   display: flex;
-  gap: 2rem;
+  gap: 3rem;
 }
 
 .nav-links a {
-  color: var(--color-text-slate);
-  font-family: var(--font-subheading);
+  font-size: 0.9rem;
   font-weight: 600;
-  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
 }
 
-.nav-links a:hover {
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--color-secondary);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after, .nav-links a.active::after {
+  width: 100%;
+}
+
+.nav-actions {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
   color: var(--color-secondary);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.icon-btn:hover {
+  opacity: 0.6;
+}
+
+main {
+  flex: 1;
 }
 
 .hero {
@@ -209,26 +237,26 @@
   color: var(--color-accent-sky);
 }
 
+/* Footer */
 footer {
-  padding: 4rem 5% 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 4rem 4rem 2rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin-top: 4rem;
 }
 
 .footer-content {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 3rem;
-  flex-wrap: wrap;
-  gap: 2rem;
+  margin-bottom: 4rem;
 }
 
 .footer-brand h2 {
+  font-size: 1.5rem;
   margin-bottom: 0.5rem;
 }
 
 .footer-brand p {
-  color: var(--color-text-slate);
+  font-size: 0.9rem;
 }
 
 .footer-links {
@@ -236,17 +264,23 @@ footer {
   gap: 2rem;
 }
 
+.footer-links a {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
 .footer-bottom {
   text-align: center;
-  color: var(--color-text-slate);
-  font-size: 0.9rem;
   padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.8rem;
+  color: #666;
 }
 
 @media (max-width: 768px) {
-  .hero h1 {
-    font-size: 3rem;
+  .navbar {
+    padding: 1rem 2rem;
   }
   .nav-links {
     display: none;

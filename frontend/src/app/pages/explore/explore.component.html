@@ -1,0 +1,51 @@
+<section class="explore-page">
+  <div class="header">
+    <h1>Explore the Vision</h1>
+    <p>Behind the scenes, drops, and our constitution.</p>
+  </div>
+  
+  <!-- Backend Integration Showcase -->
+  <div class="content-grid" style="margin-bottom: 2rem;" *ngIf="brandData">
+    <div class="placeholder-card" style="grid-column: 1 / -1; background: var(--color-midnight-navy); color: var(--color-pure-white); border-left: 4px solid var(--color-electric-blue);">
+      <h3>Backend Data Received</h3>
+      <p><strong>Message:</strong> {{ brandData.message }}</p>
+      <p><strong>Philosophy:</strong> {{ brandData.philosophy }}</p>
+      <p><strong>Vibe:</strong> {{ brandData.vibe }}</p>
+    </div>
+  </div>
+
+  <!-- Content Blocks -->
+  <div class="content-grid" style="margin-bottom: 6rem;">
+    <div class="placeholder-card">
+      <h3>The Kizenwear Constitution</h3>
+      <p>Continuous Improvement. Read our manifesto.</p>
+      <button class="btn btn-outline">Read More</button>
+    </div>
+    <div class="placeholder-card">
+      <h3>Upcoming Drops</h3>
+      <p>Get early access to Winter 26 collection.</p>
+      <button class="btn btn-outline">View Calendar</button>
+    </div>
+  </div>
+
+  <!-- Lookbook / Masonry Gallery -->
+  <div class="lookbook-section">
+    <div class="section-header">
+      <h2>Lifestyle Lookbook</h2>
+      <p>Our gear in the wild. Click any image to shop the look.</p>
+    </div>
+    
+    <div class="masonry-gallery">
+      <div class="masonry-item" *ngFor="let item of lookbookItems">
+        <img [src]="item.imageUrl" [alt]="item.title">
+        <div class="overlay">
+          <div class="overlay-content">
+            <h4>{{ item.title }}</h4>
+            <!-- Links to the specific product based on the slug from the CMS -->
+            <button class="btn btn-outline" [routerLink]="['/products', item.productSlug]">Shop This Look</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
